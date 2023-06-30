@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database</title>
+    <style>
+                body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+   
+
+        #student-form input {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+
+        #tutor-form input {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        #tutorial-form input {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CRUD functionalities</h1>
+    <h1>_______________________________________________________</h1>
+    <form id="tutorial-search">
+        <h2>Search for a tutorial</h2>
+        <input type="text" id="searchSubjectTutorial" placeholder="Search via Subject">
+        <button type="submit">Search</button>
+    </form>
+
+    <form id="delete-tutorial">
+        <h2>Delete a tutorial</h2>
+        <input type="text" id="deleteIDTutorial" placeholder="Delete via ID">
+        <button type="submit">Delete</button>
+    </form>
+
+    <form id="update-tutorial">
+        <h2>Update a tutorials Fee</h2>
+        <input type="text" id="OldNumberTutorial" placeholder="Old Number">
+        <input type="text" id="NewNumberTutorial" placeholder="New Number">
+        <button type="submit">Update</button>
+    </form>
+
+
+    <form id="tutorial-form">
+        <h2>Add a new tutorial</h2>
+        <input type="date" id="date" placeholder="Date">
+        <input type="time" id="time" placeholder="Time">
+        <input type="text" id="students" placeholder="Students">
+        <input type="text" id="tutor" placeholder="Tutor">
+        <input type="text" id="fee" placeholder="Fee">
+        <input type="text" id="tutNum" placeholder="Tutorial Number">
+        <input type="text" id="attendance" placeholder="Attendance">
+        <input type="text" id="subject" placeholder="Subject">
+        <input type="text" id="notes" placeholder="Notes">
+
+
+        <button type="submit">Add tutorial</button>
+    </form>
+
+    <h1>_______________________________________________________</h1>
+    <form id="tutor-search">
+        <h2>Search for a tutor</h2>
+        <input type="text" id="searchPhoneNumberTutor" placeholder="Search via Phone Number">
+        <button type="submit">Search</button>
+    </form>
+
+    <form id="delete-tutor">
+        <h2>Delete a tutor</h2>
+        <input type="text" id="deletePhoneNumberTutor" placeholder="Delete via Phone Number">
+        <button type="submit">Delete</button>
+    </form>
+
+    <form id="update-tutor">
+        <h2>Update a tutors phone number</h2>
+        <input type="text" id="OldNumberTutors" placeholder="Old Number">
+        <input type="text" id="NewNumberTutors" placeholder="New Number">
+        <button type="submit">Update</button>
+    </form>
+
+    <form id="tutor-form">
+        <h2>Add a new tutor</h2>
+        <input type="text" id="title" placeholder="Title">
+        <input type="text" id="firstName" placeholder="First Name">
+        <input type="text" id="surname" placeholder="Surname">
+        <input type="text" id="phoneNumber" placeholder="Phone Number">
+        <input type="email" id="email" placeholder="Email">
+        <input type="text" id="line1" placeholder="Line1">
+        <input type="text" id="line2" placeholder="Line2">
+        <input type="text" id="town" placeholder="Town">
+        <input type="text" id="county" placeholder="County">
+        <input type="text" id="eircode" placeholder="EirCode">
+
+        <button type="submit">Add Tutor</button>
+    </form>
+    <h1>_______________________________________________________</h1>
+    <div id="student-list"></div>
+    
+    
+    <form id="search-form">
+        <h2>Search for a student</h2>
+        <input type="text" id="searchPhoneNumber" placeholder="Search via Phone Number">
+        <button type="submit">Search</button>
+    </form>
+
+    <form id="delete-form">
+        <h2>Delete a student</h2>
+        <input type="text" id="deletePhoneNumber" placeholder="Delete via Phone Number">
+        <button type="submit">Delete</button>
+    </form>
+
+
+    <form id="update-form">
+        <h2>Update a students phone number</h2>
+        <input type="text" id="OldNumber" placeholder="Old Number">
+        <input type="text" id="NewNumber" placeholder="New Number">
+        <button type="submit">Update</button>
+    </form>
+
+
+    <form id="student-form">
+        <h2>Add a new student</h2>
+        <input type="text" id="title" placeholder="Title">
+        <input type="text" id="firstName" placeholder="First Name">
+        <input type="text" id="surname" placeholder="Surname">
+        <input type="text" id="phoneNumber" placeholder="Phone Number">
+        <input type="email" id="email" placeholder="Email">
+        <input type="text" id="line1" placeholder="Line1">
+        <input type="text" id="line2" placeholder="Line2">
+        <input type="text" id="town" placeholder="Town">
+        <input type="text" id="county" placeholder="County">
+        <input type="text" id="eircode" placeholder="EirCode">
+        <input type="date" id="dateOfBirth" placeholder="Date of Birth">
+        <input type="text" id="parentGuardianName" placeholder="Parent or Guardian Name">
+        <input type="text" id="virtualTutorialPermission" placeholder="Virtual Permission">
+        <input type="text" id="gender" placeholder="Gender">
+        <input type="text" id="subject" placeholder="Subject">
+        <button type="submit">Add Student</button>
+    </form>
+
+
+    <h1>_______________________________________________________</h1>
+
+
+
+
+
+    
+    <script>
+
+//TUTORIALS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.getElementById('tutorial-search').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var searchSubjectTutorial = document.getElementById('searchSubjectTutorial').value;
+//dont allow empty field
+    if (!searchSubjectTutorial) {
+        alert("Empty Field");
+        return;
+    }
+
+    fetch(`http://localhost:3000/tutorials/${searchSubjectTutorial}`, {
+    method: 'GET',
+})
+.then(response => response.json())
+.then(data => {
+    console.log('Success:', data);
+    if (data.length > 0) {
+        var tutorialData = '';
+            data.forEach(tutorial => {
+                tutorialData += `ID: ${tutorial.ID}\n`;
+                tutorialData += `Date: ${tutorial.TutorialDate}\n`;
+                tutorialData += `Tutor ID: ${tutorial.Tutor}\n`;
+                tutorialData += `Fee: ${tutorial.Fee}\n`; 
+                tutorialData += `Attendance: ${tutorial.TutorialAttendance}\n`;
+                tutorialData += '\n----------------\n'; 
+
+            });
+//i much prefer using alerts to display my data as it clusters up my screen far less and can be implemented easier
+            alert("Success, Tutorials found:\n" + tutorialData);
+    } else {
+        alert("No tutorials with that subject")
+    }
+})
+.catch((error) => {
+    console.error('Error:', error);
+});
+});
+
+
+
+
+
+
+
+
+
+
+
+
+document.getElementById('update-tutorial').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var OldNumber = document.getElementById('OldNumberTutorial').value;
+    var NewNumber = document.getElementById('NewNumberTutorial').value;
+
+    // Check if fields are not empty
+    if (!OldNumber || !NewNumber) {
+        alert("Please fill out both fields");
+        return;
+    }
+
+
+
+   
+//note there was an error where it wasnt displaying any alert on update , but still changed in database, i took out my validation to ensure it would correctly operate but how i validated it was , if the rows affected were > 0 then it was right, if not throw error
+//can still be seen by console log and by checking the db that it was in fact updated. I believe the error to be something to do with JSON  
+fetch(`http://localhost:3000/tutorials/${OldNumber}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            Fee: NewNumber,
+        }),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("HTTP error " + response.status);
+           
+        }
+        return response.json();
+    })
+    
+    alert("if "+OldNumber+" exist, changed to "+NewNumber)
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+document.getElementById('delete-tutorial').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var deleteID = document.getElementById('deleteIDTutorial').value;
+
+    //check if the field is empty
+    if (!deleteID) {
+        alert("Please provide an ID to delete.");
+        return;
+    }
+
+    fetch(`http://localhost:3000/tutorials/${deleteID}`, {
+        method: 'DELETE',
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("HTTP error " + response.status);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Success:', data);
+        alert("Tutorial record deleted successfully!");
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert("An error occurred. Please check the console for more details.");
+    });
+});
+
+
+
+
+document.getElementById('tutorial-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var date = document.getElementById('date').value;
+    var time = document.getElementById('time').value;
+    var students = document.getElementById('students').value; // Changed from 'student' to 'students'
+    var tutor = document.getElementById('tutor').value;
+    var fee = document.getElementById('fee').value;
+    var tutNum = document.getElementById('tutNum').value;
+    var attendance = document.getElementById('attendance').value;
+    var subject = document.getElementById('subject').value;
+    var notes = document.getElementById('notes').value;
+
+
+   
+if(attendance > 5 || attendance < 1){
+    alert("Attendance error")
+    return;
+}
+
+
+    //validating mandatory fields to not be empty
+    function isEmpty(input) {
+        return input === "";
+    }
+
+  
+
+    if(isEmpty(date)|isEmpty(time)|isEmpty(students)|isEmpty(tutor)|isEmpty(fee)|isEmpty(tutNum)|isEmpty(attendance)|isEmpty(subject)|isEmpty(notes)){
+        alert("A mandatory field is not filled in, please check your form")
+        return;
+    }
+
+   
+
+
+    
+
+
+
+
+    fetch('http://localhost:3000/tutorials', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+
+
+  
+   
+        body: JSON.stringify({
+           TutorialDate: date,
+           TutorialTime: time,
+           Students: students,
+           Tutor: tutor,
+           Fee: fee,
+           TutorialNumber: tutNum,
+           TutorialAttendance: attendance,
+           TutorialSubject: subject,
+           TutorialNotes: notes
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        alert("DATA ADDED")
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert("ERROR")
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//TUTORS
+
+
+
+
+document.getElementById('update-tutor').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var OldNumber = document.getElementById('OldNumberTutors').value;
+    var NewNumber = document.getElementById('NewNumberTutors').value;
+
+    // Check if fields are not empty
+    if (!OldNumber || !NewNumber) {
+        alert("Please fill out both fields");
+        return;
+    }
+
+
+
+
+//note there was an error where it wasnt displaying any alert on update , but still changed in database, i took out my validation to ensure it would correctly operate but how i validated it was , if the rows affected were > 0 then it was right, if not throw error
+//can still be seen by console log and by checking the db that it was in fact updated. I believe the error to be something to do with JSON  
+fetch(`http://localhost:3000/tutors/${OldNumber}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            PhoneNumber: NewNumber,
+        }),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("HTTP error " + response.status);
+           
+        }
+        return response.json();
+    })
+    
+    alert("if "+OldNumber+" exist, changed to "+NewNumber)
+
+
+});
+
+
+
+
+
+document.getElementById('tutor-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var title = document.getElementById('title').value;
+    var firstName = document.getElementById('firstName').value;
+    var surname = document.getElementById('surname').value;
+    var phoneNumber = document.getElementById('phoneNumber').value;
+    var email = document.getElementById('email').value;
+    var line1 = document.getElementById('line1').value;
+    var line2 = document.getElementById('line2').value;
+    var town = document.getElementById('town').value;
+    var county = document.getElementById('county').value;
+    var eircode = document.getElementById('eircode').value;
+   
+
+
+
+    //validating mandatory fields to not be empty
+    function isEmpty(input) {
+        return input === "";
+    }
+
+  
+
+    if(isEmpty(title)|isEmpty(firstName)|isEmpty(surname)|isEmpty(phoneNumber)|isEmpty(email)|isEmpty(line1)|isEmpty(town)|isEmpty(county)){
+        alert("A mandatory field is not filled in, please check your form")
+        return;
+    }
+
+    var titlePattern = /^[a-zA-Z\s]{1,5}$/;  
+    var namePattern = /^[a-zA-Z\s]{1,255}$/; 
+    var phoneNumberPattern = /^\+?[0-9]\d{1,14}$/;  
+    //some regex generated by chatgpt for validation
+   
+
+    if (!titlePattern.test(title)) {
+        alert("Invalid title! Only letters and whitespace are allowed and maximum length of 5.");
+        return;
+    }
+    if (!namePattern.test(firstName)) {
+        alert("Invalid first name! Only letters and whitespace are allowed and maximum length of 255.");
+        return;
+    }
+    if (!phoneNumberPattern.test(phoneNumber)) {
+        alert("Invalid phone number! Please provide a valid phone number.");
+        return;
+    }
+
+
+    
+
+
+
+
+    fetch('http://localhost:3000/tutors', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            Title: title,
+            FirstName: firstName,
+            Surname: surname,
+            PhoneNumber: phoneNumber,
+            Email: email,
+            Line1: line1,
+            Line2: line2,
+            Town: town,
+            County: county,
+            EirCode: eircode
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+});
+
+
+
+
+
+
+
+
+document.getElementById('tutor-search').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var searchPhoneNumber = document.getElementById('searchPhoneNumberTutor').value;
+//dont allow empty field
+    if (!searchPhoneNumber) {
+        alert("Empty Field");
+        return;
+    }
+
+    fetch(`http://localhost:3000/tutors/${searchPhoneNumber}`, {
+    method: 'GET',
+})
+.then(response => response.json())
+.then(data => {
+    console.log('Success:', data);
+    if (data.length > 0) {
+        var tutorData = '';
+            data.forEach(tutor => {
+                tutorData += `ID: ${tutor.ID}\n`;
+                tutorData += `Title: ${tutor.Title}\n`;
+                tutorData += `First Name: ${tutor.FirstName}\n`;
+                tutorData += `Surname: ${tutor.Surname}\n`; 
+                tutorData += `Email: ${tutor.Email}\n`;
+                tutorData += '\n----------------\n'; 
+            });
+//i much prefer using alerts to display my data as it clusters up my screen far less and can be implemented easier
+            alert("Success, Users found:\n" + tutorData);
+    } else {
+        alert("No tutors with that phone number")
+    }
+})
+.catch((error) => {
+    console.error('Error:', error);
+});
+});
+
+
+
+document.getElementById('delete-tutor').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var deletePhoneNumber = document.getElementById('deletePhoneNumberTutor').value;
+
+    //check if the field is empty
+    if (!deletePhoneNumber) {
+        alert("Please provide a phone number to delete.");
+        return;
+    }
+
+    fetch(`http://localhost:3000/tutors/${deletePhoneNumber}`, {
+        method: 'DELETE',
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("HTTP error " + response.status);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Success:', data);
+        alert("Tutor record deleted successfully!");
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert("An error occurred. Please check the console for more details.");
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//STUDENT 
+
+    document.getElementById('student-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var title = document.getElementById('title').value;
+    var firstName = document.getElementById('firstName').value;
+    var surname = document.getElementById('surname').value;
+    var phoneNumber = document.getElementById('phoneNumber').value;
+    var email = document.getElementById('email').value;
+    var line1 = document.getElementById('line1').value;
+    var line2 = document.getElementById('line2').value;
+    var town = document.getElementById('town').value;
+    var county = document.getElementById('county').value;
+    var eircode = document.getElementById('eircode').value;
+    var dateOfBirth = document.getElementById('dateOfBirth').value;
+    var parentGuardianName = document.getElementById('parentGuardianName').value;
+    var virtualTutorialPermission = document.getElementById('virtualTutorialPermission').value;
+    var gender = document.getElementById('gender').value;
+    var subject = document.getElementById('subject').value;
+
+
+
+    //validating mandatory fields to not be empty
+    function isEmpty(input) {
+        return input === "";
+    }
+
+  
+
+var dob = new Date(dateOfBirth);
+var currentDate = new Date();
+
+//calculate the age difference in milliseconds
+var ageDiff = currentDate - dob;
+
+
+var age = Math.floor(ageDiff / (365.25 * 24 * 60 * 60 * 1000));
+
+
+if (age >= 18) {
+   
+} else {
+    
+    if(isEmpty(parentGuardianName)){
+        alert("User is not 18, they need a parent / guardian")
+        return;
+    }
+}
+
+    if(isEmpty(title)|isEmpty(firstName)|isEmpty(surname)|isEmpty(phoneNumber)|isEmpty(email)|isEmpty(line1)|isEmpty(town)|isEmpty(county)|isEmpty(dateOfBirth)|isEmpty(virtualTutorialPermission)|isEmpty(gender)){
+        alert("A mandatory field is not filled in, please check your form")
+        return;
+    }
+
+    var titlePattern = /^[a-zA-Z\s]{1,5}$/;  
+    var namePattern = /^[a-zA-Z\s]{1,255}$/; 
+    var phoneNumberPattern = /^\+?[0-9]\d{1,14}$/;  
+    //some regex generated by chatgpt for validation
+   
+
+    if (!titlePattern.test(title)) {
+        alert("Invalid title! Only letters and whitespace are allowed and maximum length of 5.");
+        return;
+    }
+    if (!namePattern.test(firstName)) {
+        alert("Invalid first name! Only letters and whitespace are allowed and maximum length of 255.");
+        return;
+    }
+    if (!phoneNumberPattern.test(phoneNumber)) {
+        alert("Invalid phone number! Please provide a valid phone number.");
+        return;
+    }
+
+
+    
+
+
+
+
+    fetch('http://localhost:3000/students', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            Title: title,
+            FirstName: firstName,
+            Surname: surname,
+            PhoneNumber: phoneNumber,
+            Email: email,
+            Line1: line1,
+            Line2: line2,
+            Town: town,
+            County: county,
+            EirCode: eircode,
+            DateOfBirth: dateOfBirth,
+            ParentGuardianName: parentGuardianName,
+            VirtualTutorialPermission: virtualTutorialPermission,
+            Gender: gender,
+            Subject: subject
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+});
+
+
+
+
+
+//i have decided to allow a user to search a student via phone number as its unique.
+
+document.getElementById('search-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var searchPhoneNumber = document.getElementById('searchPhoneNumber').value;
+//dont allow empty field
+    if (!searchPhoneNumber) {
+        alert("Empty Field");
+        return;
+    }
+
+    fetch(`http://localhost:3000/students/${searchPhoneNumber}`, {
+    method: 'GET',
+})
+.then(response => response.json())
+.then(data => {
+    console.log('Success:', data);
+    if (data.length > 0) {
+        var studentData = '';
+            data.forEach(student => {
+                studentData += `ID: ${student.ID}\n`;
+                studentData += `Title: ${student.Title}\n`;
+                studentData += `First Name: ${student.FirstName}\n`;
+                studentData += `Surname: ${student.Surname}\n`; 
+                studentData += `Email: ${student.Email}\n`;
+                studentData += '\n----------------\n'; 
+            });
+//i much prefer using alerts to display my data as it clusters up my screen far less and can be implemented easier
+            alert("Success, Users found:\n" + studentData);
+    } else {
+        alert("No students with that phone number")
+    }
+})
+.catch((error) => {
+    console.error('Error:', error);
+});
+});
+
+
+
+
+
+
+
+
+
+document.getElementById('delete-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var deletePhoneNumber = document.getElementById('deletePhoneNumber').value;
+
+    //check if the field is empty
+    if (!deletePhoneNumber) {
+        alert("Please provide a phone number to delete.");
+        return;
+    }
+
+    fetch(`http://localhost:3000/students/${deletePhoneNumber}`, {
+        method: 'DELETE',
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("HTTP error " + response.status);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Success:', data);
+        alert("Student record deleted successfully!");
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert("An error occurred. Please check the console for more details.");
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.getElementById('update-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var OldNumber = document.getElementById('OldNumber').value;
+    var NewNumber = document.getElementById('NewNumber').value;
+
+    // Check if fields are not empty
+    if (!OldNumber || !NewNumber) {
+        alert("Please fill out both fields");
+        return;
+    }
+
+
+
+
+//note there was an error where it wasnt displaying any alert on update , but still chnaged in database, i took out my validation to ensure it would correctly operate but how i validated it was , if the rows affected were > 0 then it was right, if not throw error
+//can still be seen by console log and by checking the db that it was in fact updated. I believe the error to be something to do with JSON  
+fetch(`http://localhost:3000/students/${OldNumber}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            PhoneNumber: NewNumber,
+        }),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("HTTP error " + response.status);
+           
+        }
+        return response.json();
+    })
+    
+    alert("if "+OldNumber+" exist, changed to "+NewNumber)
+
+
+});
+
+
+
+
+
+    </script>
+</body>
+
+</html>
+
+
+
+
+

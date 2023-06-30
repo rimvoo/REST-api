@@ -1,0 +1,438 @@
+
+
+
+
+
+
+
+
+
+
+
+
+Tutorials: 
+[
+  {
+    "TutorialDate": "2023-06-01",
+    "TutorialTime": "10:00:00",
+    "Students": 3,
+    "Tutor": 13,
+    "Fee": 50,
+    "TutorialNumber": 1,
+    "TutorialAttendance": "Present",
+    "TutorialSubject": "Math",
+    "TutorialNotes": "Covered the basics of Algebra."
+  },
+  {
+    "TutorialDate": "2023-06-02",
+    "TutorialTime": "12:00:00",
+    "Students": 3,
+    "Tutor": 12,
+    "Fee": 50,
+    "TutorialNumber": 2,
+    "TutorialAttendance": "Present",
+    "TutorialSubject": "Science",
+    "TutorialNotes": "Introduced the concept of Physics."
+  },
+  {
+    "TutorialDate": "2023-06-03",
+    "TutorialTime": "14:00:00",
+    "Students": 3,
+    "Tutor": 15,
+    "Fee": 60,
+    "TutorialNumber": 3,
+    "TutorialAttendance": "Present",
+    "TutorialSubject": "History",
+    "TutorialNotes": "Discussed the World War II."
+  },
+  {
+    "TutorialDate": "2023-06-04",
+    "TutorialTime": "16:00:00",
+    "Students": 3,
+    "Tutor": 15,
+    "Fee": 60,
+    "TutorialNumber": 4,
+    "TutorialAttendance": "Present",
+    "TutorialSubject": "English",
+    "TutorialNotes": "Focused on Grammar."
+  },
+  {
+    "TutorialDate": "2023-06-05",
+    "TutorialTime": "10:00:00",
+    "Students": 3,
+    "Tutor": 15,
+    "Fee": 70,
+    "TutorialNumber": 5,
+    "TutorialAttendance": "Present",
+    "TutorialSubject": "Geography",
+    "TutorialNotes": "Talked about the continents."
+  },
+  {
+    "TutorialDate": "2023-06-06",
+    "TutorialTime": "12:00:00",
+    "Students": 3,
+    "Tutor": 14,
+    "Fee": 70,
+    "TutorialNumber": 6,
+    "TutorialAttendance": "Present",
+    "TutorialSubject": "Math",
+    "TutorialNotes": "Covered the basics of Geometry."
+  },
+  {
+    "TutorialDate": "2023-06-07",
+    "TutorialTime": "14:00:00",
+    "Students": 3,
+    "Tutor": 15,
+    "Fee": 50,
+    "TutorialNumber": 7,
+    "TutorialAttendance": "Present",
+    "TutorialSubject": "Science",
+    "TutorialNotes": "Introduced the concept of Chemistry."
+  },
+  {
+    "TutorialDate": "2023-06-08",
+    "TutorialTime": "16:00:00",
+    "Students": 3,
+    "Tutor": 16,
+    "Fee": 60,
+    "TutorialNumber": 8,
+    "TutorialAttendance": "Present",
+    "TutorialSubject": "History",
+    "TutorialNotes": "Discussed the Civil War."
+  },
+  {
+    "TutorialDate": "2023-06-09",
+    "TutorialTime": "10:00:00",
+    "Students": 3,
+    "Tutor": 17,
+    "Fee": 50,
+    "TutorialNumber": 9,
+    "TutorialAttendance": "Present",
+    "TutorialSubject": "English",
+    "TutorialNotes": "Focused on Vocabulary."
+  },
+  {
+    "TutorialDate": "2023-06-10",
+    "TutorialTime": "12:00:00",
+    "Students": 3,
+    "Tutor": 17,
+    "Fee": 60,
+    "TutorialNumber": 10,
+    "TutorialAttendance": "Present",
+    "TutorialSubject": "Geography",
+    "TutorialNotes": "Talked about the countries."
+  },
+  {
+    "TutorialDate": "2023-06-11",
+    "TutorialTime": "14:00:00",
+    "Students": 3,
+    "Tutor": 16,
+    "Fee": 50,
+    "TutorialNumber": 11,
+    "TutorialAttendance": "Present",
+    "TutorialSubject": "Math",
+    "TutorialNotes": "Covered the basics of Trigonometry."
+  },
+  {
+    "TutorialDate": "2023-06-12",
+    "TutorialTime": "16:00:00",
+    "Students": 3,
+    "Tutor": 15,
+    "Fee": 60,
+    "TutorialNumber": 12,
+    "TutorialAttendance": "Present",
+    "TutorialSubject": "Science",
+    "TutorialNotes": "Introduced the concept of Biology."
+  }
+]
+
+
+
+
+
+
+
+Tutors:
+[
+  {
+    "Title": "Mr.",
+    "FirstName": "John",
+    "Surname": "Doe",
+    "PhoneNumber": "123456789",
+    "Email": "john@example.com",
+    "Line1": "123 Main Street",
+    "Line2": "Apt. 4B",
+    "Town": "Smalltown",
+    "County": "Somewhere",
+    "EirCode": "123456"
+  },
+  {
+    "Title": "Mrs.",
+    "FirstName": "Jane",
+    "Surname": "Smith",
+    "PhoneNumber": "987654321",
+    "Email": "jane@example.com",
+    "Line1": "456 Main Street",
+    "Line2": "Apt. 2C",
+    "Town": "Bigtown",
+    "County": "Elsewhere",
+    "EirCode": "654321"
+  },
+  {
+    "Title": "Ms.",
+    "FirstName": "Emily",
+    "Surname": "Brown",
+    "PhoneNumber": "456789123",
+    "Email": "emily@example.com",
+    "Line1": "789 Main Street",
+    "Line2": "Apt. 3D",
+    "Town": "Middletown",
+    "County": "Nowhere",
+    "EirCode": "789123"
+  },
+  {
+    "Title": "Mr.",
+    "FirstName": "Robert",
+    "Surname": "Johnson",
+    "PhoneNumber": "321654987",
+    "Email": "robert@example.com",
+    "Line1": "321 Main Street",
+    "Line2": "Apt. 5E",
+    "Town": "Largetown",
+    "County": "Anywhere",
+    "EirCode": "321654"
+  },
+  {
+    "Title": "Dr.",
+    "FirstName": "Charles",
+    "Surname": "Miller",
+    "PhoneNumber": "654321789",
+    "Email": "charles@example.com",
+    "Line1": "654 Main Street",
+    "Line2": "Apt. 6F",
+    "Town": "Smalltown",
+    "County": "Somewhere",
+    "EirCode": "654321"
+  },
+  {
+    "Title": "Prof.",
+    "FirstName": "Alice",
+    "Surname": "Davis",
+    "PhoneNumber": "789123456",
+    "Email": "alice@example.com",
+    "Line1": "987 Main Street",
+    "Line2": "Apt. 7G",
+    "Town": "Tinytown",
+    "County": "Everywhere",
+    "EirCode": "987654"
+  }
+]
+
+
+
+
+
+
+
+
+
+
+
+Students:
+[
+  {
+    "Title": "Ms.",
+    "FirstName": "Linda",
+    "Surname": "Taylor",
+    "PhoneNumber": "258369147",
+    "Email": "linda@example.com",
+    "Line1": "258 Main Street",
+    "Line2": "Apt. 8H",
+    "Town": "Bigtown",
+    "County": "Elsewhere",
+    "EirCode": "258369",
+    "DateOfBirth": "2005-01-01",
+    "ParentGuardianName": "John Taylor",
+    "VirtualTutorialPermission": "Yes",
+    "Gender": "Female",
+    "Subject": "Math",
+    "RecordCreationDate": "2023-01-01"
+  },
+  {
+    "Title": "Mr.",
+    "FirstName": "James",
+    "Surname": "Wilson",
+    "PhoneNumber": "124578369",
+    "Email": "james@example.com",
+    "Line1": "246 Main Street",
+    "Line2": "Apt. 7G",
+    "Town": "Smalltown",
+    "County": "Somewhere",
+    "EirCode": "246578",
+    "DateOfBirth": "2006-01-01",
+    "ParentGuardianName": "Mary Wilson",
+    "VirtualTutorialPermission": "No",
+    "Gender": "Male",
+    "Subject": "English",
+    "RecordCreationDate": "2023-02-01"
+  },
+  {
+    "Title": "Ms.",
+    "FirstName": "Sarah",
+    "Surname": "Johnson",
+    "PhoneNumber": "789456123",
+    "Email": "sarah@example.com",
+    "Line1": "789 Park Lane",
+    "Line2": "Apt. 6F",
+    "Town": "Oldtown",
+    "County": "Anywhere",
+    "EirCode": "789456",
+    "DateOfBirth": "2007-01-01",
+    "ParentGuardianName": "Steve Johnson",
+    "VirtualTutorialPermission": "Yes",
+    "Gender": "Female",
+    "Subject": "Science",
+    "RecordCreationDate": "2023-03-01"
+  },
+  {
+    "Title": "Mr.",
+    "FirstName": "Robert",
+    "Surname": "Miller",
+    "PhoneNumber": "369852147",
+    "Email": "robert@example.com",
+    "Line1": "369 High Street",
+    "Line2": "Apt. 5E",
+    "Town": "Newtown",
+    "County": "Everywhere",
+    "EirCode": "369852",
+    "DateOfBirth": "2008-01-01",
+    "ParentGuardianName": "Laura Miller",
+    "VirtualTutorialPermission": "No",
+    "Gender": "Male",
+    "Subject": "History",
+    "RecordCreationDate": "2023-04-01"
+  },
+  {
+    "Title": "Ms.",
+    "FirstName": "Laura",
+    "Surname": "Brown",
+    "PhoneNumber": "987654321",
+    "Email": "laura@example.com",
+    "Line1": "987 Elm Street",
+    "Line2": "Apt. 4D",
+    "Town": "Greentown",
+    "County": "Nowhere",
+    "EirCode": "987654",
+    "DateOfBirth": "2009-01-01",
+    "ParentGuardianName": "Brian Brown",
+    "VirtualTutorialPermission": "Yes",
+    "Gender": "Female",
+    "Subject": "Geography",
+    "RecordCreationDate": "2023-05-01"
+  },
+  {
+    "Title": "Mr.",
+    "FirstName": "Michael",
+    "Surname": "Davis",
+    "PhoneNumber": "753951842",
+    "Email": "michael@example.com",
+    "Line1": "753 Oak Street",
+    "Line2": "Apt. 3C",
+    "Town": "Bluetown",
+    "County": "Somewhere",
+    "EirCode": "753951",
+    "DateOfBirth": "2010-01-01",
+    "ParentGuardianName": "Jessica Davis",
+    "VirtualTutorialPermission": "No",
+    "Gender": "Male",
+    "Subject": "Math",
+    "RecordCreationDate": "2023-06-01"
+  },
+  {
+    "Title": "Ms.",
+    "FirstName": "Jennifer",
+    "Surname": "Moore",
+    "PhoneNumber": "159753486",
+    "Email": "jennifer@example.com",
+    "Line1": "159 Cedar Street",
+    "Line2": "Apt. 2B",
+    "Town": "Yellowtown",
+    "County": "Elsewhere",
+    "EirCode": "159753",
+    "DateOfBirth": "2011-01-01",
+    "ParentGuardianName": "Mark Moore",
+    "VirtualTutorialPermission": "Yes",
+    "Gender": "Female",
+    "Subject": "English",
+    "RecordCreationDate": "2023-07-01"
+  },
+  {
+    "Title": "Mr.",
+    "FirstName": "Daniel",
+    "Surname": "Jackson",
+    "PhoneNumber": "852963741",
+    "Email": "daniel@example.com",
+    "Line1": "852 Pine Street",
+    "Line2": "Apt. 1A",
+    "Town": "Redtown",
+    "County": "Anywhere",
+    "EirCode": "852963",
+    "DateOfBirth": "2012-01-01",
+    "ParentGuardianName": "Emily Jackson",
+    "VirtualTutorialPermission": "No",
+    "Gender": "Male",
+    "Subject": "Science",
+    "RecordCreationDate": "2023-08-01"
+  },
+  {
+    "Title": "Ms.",
+    "FirstName": "Emma",
+    "Surname": "Wilson",
+    "PhoneNumber": "741852963",
+    "Email": "emma@example.com",
+    "Line1": "741 Maple Street",
+    "Town": "Orangetown",
+    "County": "Everywhere",
+    "EirCode": "741852",
+    "DateOfBirth": "2013-01-01",
+    "ParentGuardianName": "George Wilson",
+    "VirtualTutorialPermission": "Yes",
+    "Gender": "Female",
+    "Subject": "History",
+    "RecordCreationDate": "2023-09-01"
+  },
+  {
+    "Title": "Mr.",
+    "FirstName": "William",
+    "Surname": "Thomas",
+    "PhoneNumber": "963852741",
+    "Email": "william@example.com",
+    "Line1": "963 Birch Street",
+    "Town": "Violettown",
+    "County": "Nowhere",
+    "EirCode": "963852",
+    "DateOfBirth": "2014-01-01",
+    "ParentGuardianName": "Sophia Thomas",
+    "VirtualTutorialPermission": "No",
+    "Gender": "Male",
+    "Subject": "Geography",
+    "RecordCreationDate": "2023-10-01"
+  }
+]
+
+part (a)
+This part was done in makedb.js using mySQL (which was connecting to the MU web)
+
+part (b)
+routes are made in routes folder,  server.js "links them" and connects to the DB 
+
+part (c) 
+DBwebsite.html handles front end, i used alerts as this is the neatest way to display data and it also wont permanently cluster up my screen, only when i need it.
+i used node js
+
+***************************************
+DataBase Style:
+
+I used RDBS modelling with foreign keys 
+to connect the different tables together
+***************************************
